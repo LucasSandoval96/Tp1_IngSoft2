@@ -20,12 +20,27 @@ def factorial(num):
             num -= 1
         return fact 
 
+def obtener_rango(entrada): # Función para procesar la entrada y extraer los límites del rango
+    try:
+        desde, hasta = map(int, entrada.split('-'))
+        if desde > hasta:
+            print("El primer número debe ser menor o igual al segundo.")
+            sys.exit(1)
+        return desde, hasta
+    except ValueError:
+        print("Formato incorrecto. Debe ser en el formato desde-hasta (ej. 4-8).")
+        sys.exit(1)
+
 if len(sys.argv) < 2:
-   print("Debe informar un número!")
-   num=int(input("numero ingresado: "))
+    entrada = input("Ingrese un rango en formato desde-hasta (ej. 4-8): ")
 else:
-    num = int(sys.argv[1])
-    
-print("Factorial ",num,"! es ", factorial(num)) 
+    entrada = sys.argv[1]
+
+# Obtiene los valores del rango
+desde, hasta = obtener_rango(entrada)
+
+# Calcula y muestra los factoriales en el rango
+for num in range(desde, hasta + 1):
+    print(f"Factorial de {num} es {factorial(num)}")
 
 #soy un comentario para la consigna
