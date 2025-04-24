@@ -1,8 +1,7 @@
-# Importa la biblioteca de OpenAI para interactuar con su API
-import openai
-
 # Importa readline para manejar el historial de entradas del usuario
 import readline
+# Importa la biblioteca de OpenAI para interactuar con su API
+import openai
 
 # Maneja la compatibilidad del módulo readline en distintos sistemas
 try:
