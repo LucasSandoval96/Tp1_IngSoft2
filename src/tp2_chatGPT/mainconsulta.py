@@ -1,6 +1,11 @@
 import openai
 import readline
 
+try:
+    import readline
+except ImportError:
+    import pyreadline as readline
+
 # Coloca tu API KEY aquí
 openai.api_key = "tu-api-key"
 
@@ -30,7 +35,7 @@ def procesar_consulta(consulta):
 def invocar_chatgpt(mensajes):
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-3.5-turbo",
             messages=mensajes,
             temperature=1,
             max_tokens=150,
